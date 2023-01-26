@@ -3,4 +3,4 @@ project(Matrix_Multithreading)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(Matrix_Multithreading main.cpp)
+add_executable(Matrix_Multithreading matrix-multithreading.cpp)
