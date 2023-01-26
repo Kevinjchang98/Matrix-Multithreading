@@ -3,7 +3,8 @@
 #include <vector>
 
 constexpr int NUM_THREADS = 10;
-constexpr int SIZE = 5;
+constexpr int SIZE = 20000;
+constexpr bool PRINT_MATRICES = false;
 
 /**
  * Vector object to be used for matrix-vector multiplication
@@ -149,13 +150,20 @@ int main() {
   auto ans = std::make_shared<Matrix>(SIZE, false);
 
   // Print starting matrix
-  printMatrix(matrix, "Beginning matrix");
+  if(PRINT_MATRICES) (matrix, "Beginning matrix");
+
+  auto start = std::chrono::high_resolution_clock::now();
 
   // Perform calculations
   runCalculations(matrix, vector, ans);
 
+  auto end = std::chrono::high_resolution_clock::now();
+
   // Print answer matrix
-  printMatrix(ans, "Answer");
+  if(PRINT_MATRICES) (ans, "Answer");
+
+  // Print time taken
+  std::cout << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " microseconds";
 
   return 0;
 }
