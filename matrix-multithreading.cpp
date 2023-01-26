@@ -3,7 +3,7 @@
 #include <vector>
 
 constexpr int NUM_THREADS = 10;
-constexpr int SIZE = 20000;
+constexpr int SIZE = 40000;
 constexpr bool PRINT_MATRICES = false;
 
 /**
@@ -150,7 +150,7 @@ int main() {
   auto ans = std::make_shared<Matrix>(SIZE, false);
 
   // Print starting matrix
-  if(PRINT_MATRICES) (matrix, "Beginning matrix");
+  if(PRINT_MATRICES) printMatrix(matrix, "Beginning matrix");
 
   auto start = std::chrono::high_resolution_clock::now();
 
@@ -160,7 +160,7 @@ int main() {
   auto end = std::chrono::high_resolution_clock::now();
 
   // Print answer matrix
-  if(PRINT_MATRICES) (ans, "Answer");
+  if(PRINT_MATRICES) printMatrix(ans, "Answer");
 
   // Print time taken
   std::cout << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " microseconds";
