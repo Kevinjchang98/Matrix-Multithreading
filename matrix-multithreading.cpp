@@ -83,7 +83,7 @@ class Matrix {
  * @param rowStart Row to start on; inclusive
  * @param numRows Number of rows including rowStart to use
  */
-auto matrixVectorMultiplication(std::shared_ptr<Matrix> matrix,
+void matrixVectorMultiplication(std::shared_ptr<Matrix> matrix,
                                 std::shared_ptr<Vector> vector,
                                 std::shared_ptr<Matrix> ans,
                                 int rowStart,
@@ -99,9 +99,8 @@ auto matrixVectorMultiplication(std::shared_ptr<Matrix> matrix,
  * Prints all values of a matrix
  * @param matrix Source to get values from
  * @param header String to print before values of matrix
- * @return
  */
-auto printMatrix(const std::shared_ptr<Matrix> &matrix, const std::string &header) {
+void printMatrix(const std::shared_ptr<Matrix> &matrix, const std::string &header) {
   if (header.length() > 0) std::cout << header << "\n";
 
   for (int i = 0; i < SIZE; i++) {
@@ -121,7 +120,7 @@ auto printMatrix(const std::shared_ptr<Matrix> &matrix, const std::string &heade
  * @param vector Vector to multiply
  * @param ans Answer of type Matrix to put answers into. Must be same dimensions as matrix
  */
-auto runCalculations(std::shared_ptr<Matrix> matrix, std::shared_ptr<Vector> vector, std::shared_ptr<Matrix> ans) {
+void runCalculations(std::shared_ptr<Matrix> matrix, std::shared_ptr<Vector> vector, std::shared_ptr<Matrix> ans) {
   // Create vector of threads
   std::vector<std::thread> threads;
 
